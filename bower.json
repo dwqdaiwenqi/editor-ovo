@@ -1,0 +1,31 @@
+{
+  "name": "chapter-5_dialog",
+  "version": "0.0.0",
+  "authors": [
+    "Jason Strimpel <jstrimpel@gmail.com>"
+  ],
+  "description": "dialog component clone",
+  "main": "./dialog.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "dialog"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/WebComponentsBook/chapter-5_dialog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "chapter-2_voltron": "*",
+    "chapter-6_duvet": "*",
+    "jenga": "*"
+  }
+}

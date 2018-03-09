@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="utf-8">
+        <title>Dialog Component Example</title>
+        <style type="text/css">
+            .component {
+                width: 400px;
+                height: 200px;
+                background: #ccc;
+                display: none;
+            }
+            #title {
+                height: 20px;
+                background: #000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="component">
+            <div id="title"></div>
+            <p><a href="#" data-action="unbind">unbind</a></p>
+            <p><a href="#" data-action="destroy">destroy</a></p>
+        </div>
+
+        <!-- <emoji-ovo-reply>
+          <button-reply text="回复"></button-reply>
+          <button-cancel text="取消"></button-cancel>
+          <emoji-panel o={}></emoji-panel>
+        </emoji-ovo-reply> -->
+
+        <script type="text/javascript" src="components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="components/chapter-2_voltron/voltron.js"></script>
+        <script type="text/javascript" src="components/jenga/dist/jenga.js"></script>
+        <script type="text/javascript" src="components/chapter-6_duvet/duvet.js"></script>
+        <script type="text/javascript" src="components/chapter-7_shamen/shamen.js"></script>
+        <script type="text/javascript" src="components/chapter-8_apache-chief/apacheChief.js"></script>
+        <script type="text/javascript" src="dialog.js"></script>
+        <script type="text/javascript">
+          
+          var Class = function(){
+  var Class = {},create;
+
+  Class.create = function(prop,st_prop){
+    
+    var F = function(){       
+			if(typeof this.init ==='function'&&this.init)
+      	this.init.apply(this,arguments);
+    };
+    
+    prop = prop || {};
+   
+    st_prop && Object.keys(st_prop).forEach(function(s){
+			F[s] = st_prop[s];  
+		});
+		
+		F.extend = Class.create;
+		
+    //不是Class extend 要从上个F继承了
+    if(this != Class){
+      F.prototype = Object.create(this.prototype);
+      F.prototype.constructor = F;
+			F.prototype.__super__ = this.prototype;
+
+      Object.keys(prop).forEach(function(s){
+        //需要扩展的和继承过后的存在重复！
+        if(F.prototype[s] && typeof F.prototype[s]=='function'){
+             
+          F.prototype[s] = function(){
+            var args = arguments,
+              that = this;      
+            this._super = function(){
+							return that.__super__[s].apply(this,args);
+							
+            };
+            return prop[s].apply(this,arguments);
+          };
+
+        }else{
+          F.prototype[s] = prop[s];
+        };
+        
+			});
+			
+
+			Object.keys(this).filter(function(s){
+		    return !(/extend|create/).test(s);
+		  }).forEach(function(s){
+		    F[s] = this.__super__.constructor[s];
+			},F.prototype);
+			
+			st_prop && Object.keys(st_prop).forEach(function(s){
+				F[s] = st_prop[s];  
+			});
+
+		
+  
+      return F;
+    };
+
+    Object.keys(prop).forEach(function(s){
+      F.prototype[s] =prop[s];
+    });
+		F.prototype.constructor = F;
+
+    return F;
+    
+  };
+  return window.Class = Class;
+
+}();
+
+            // (function () {
+            //     var dialog = new Dialog({
+            //         $el: 'div.component',
+            //         draggable: true,
+            //         resizable: true,
+            //         events: {
+            //             'click [data-action]': function (e) {
+            //                 var action = $(e.currentTarget).attr('data-action');
+            //                 e.preventDefault();
+            //                 this[action]();
+            //             }
+            //         }
+            //     });
+            //     dialog.show();
+            // })();
+
+
+            new Reply({
+              $el:'4234',
+              events:{
+              },
+              onComplete(){
+
+              }
+              
+            });
+
+        </script>
+    
+</body></html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+	<meta charset="UTF-8">
+	<meta name="theme-color" content="#de698c">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,viewport-fit=cover">
+
+	<title>niconiconi</title>
+	<!-- <link rel="stylesheet" href="http://192.168.84.78:7878/common/css/normalize.css"> -->
+	<!-- <link rel="stylesheet" href="http:http:http:http://192.168.84.95:7878/common/mu-mobile/mu-mobile-771941.css"> -->
+	<script src="http://192.168.84.78:7878/common/js/polyfill.min.js"></script>
+	<script src="http://192.168.84.78:7878/common/js/jquery.min.js"></script>
+	<!-- <script src="http:http:http:http://cdn.ravenjs.com/3.19.1/raven.min.js" crossorigin="anonymous"></script> -->
+	<script src="http://192.168.84.78:7878/common/mu-mobile/mu-mobile-067daa.js"></script>
+	<!-- <link rel="stylesheet" href="http://3.swiper.com.cn/dist/css/swiper.min.css"> -->
+  <!-- <script src="http://3.swiper.com.cn/dist/js/swiper.min.js"></script> -->
+	<!-- <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement('script');
+		  hm.src = 'https://hm.baidu.com/hm.js?c0535183dd0a1fac13b1983d4c4bb6dd';
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script> -->
+
+</head>
+<body>
+	<style>
+
+	</style>
+	<script>
+		
+		//
+		MuMobile
+		//.task('Horizontal',{})
+		//.task('Meta',{scalable:false})
+		//.task('WxInfo',{})
+		// .task('Loading',{})
+		.run();
+		
+		
+		// var config = Object.assign({ MAX_EMOJIS:20,MAX_TITLE_LEN:50,Z_INDEX:23 },EmojiOvO.Reply.config);
+		// //var parameter = {config,container:document.body, sheets:'./dist/sheet_30x900.png', convert_to_entiry:false};
+
+		// EmojiOvO.Reply('.el-reply',{sheet:'./dist/sheet_30x900.png'}).on('complete',o=>{
+		// 	//el_target,html,text,edit_time,emojis
+		// 	this.hide();
+		// 	this.clear();
+		// });
+		
+		
+		// EmojiOvO.Post('.el-editor',{el_parent}).on('complete',o=>{
+		// 	//
+		// });
+
+
+		/* Simple JavaScript Inheritance
+		* By John Resig https://johnresig.com/
+		* MIT Licensed.
+		*/
+		// Inspired by base2 and Prototype
+		// ;(function(){
+		// 	var initializing = false, fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
+		
+		// 	// The base Class implementation (does nothing)
+		// 	window.Class = function(){};
+			
+			
+		// 	// Create a new Class that inherits from this class
+		// 	Class.extend = function(prop) {
+		// 		var _super = this.prototype;
+				
+				
+		// 		// Instantiate a base class (but only create the instance,
+		// 		// don't run the init constructor)
+		// 		//new 出上个类的原型实例的时候，不调用类的构造函数
+		// 		initializing = true;
+		// 		// 非原型，一个实例
+		// 		var prototype = new this();
+		// 		initializing = false;
+		// 		// true
+		// 		// console.log(this instanceof window.Class);
+		// 		// true
+		// 		// console.log(this.prototype === window.Class.prototype);
+
+		// 		// Copy the properties over onto the new prototype
+		// 		for (var name in prop) {
+		// 			// Check if we're overwriting an existing function
+		// 			prototype[name] = typeof prop[name] == "function" && 
+		// 				typeof _super[name] == "function" && fnTest.test(prop[name]) ?
+		// 				(function(name, fn){
+		// 					return function() {
+		// 						var tmp = this._super;
+								
+		// 						// Add a new ._super() method that is the same method
+		// 						// but on the super-class
+		// 						this._super = _super[name];
+								
+		// 						// The method only need to be bound temporarily, so we
+		// 						// remove it when we're done executing
+		// 						var ret = fn.apply(this, arguments);        
+		// 						this._super = tmp;
+								
+		// 						return ret;
+		// 					};
+		// 				})(name, prop[name]) :
+		// 				prop[name];
+		// 		}
+
+		// 		//console.log(prototype,window.Class.prototype);
+				
+		// 		// The dummy class constructor
+		// 		function Class() {
+		// 			// All construction is actually done in the init method
+					
+		// 			if ( !initializing && this.init )
+		// 				this.init.apply(this, arguments);
+		// 		}
+				
+		// 		// 这个Class原型给到实例，实例引用到window.Class prototype
+		// 		// Populate our constructed prototype object
+		// 		Class.prototype = prototype;
+				
+		// 		// Enforce the constructor to be what we expect
+		// 		Class.prototype.constructor = Class;
+		
+		// 		// And make this class extendable
+		// 		Class.extend = arguments.callee;
+				
+		// 		return Class;
+		// 	};
+		// })();
+
+// var Class = function(){
+//   var Class = {},create;
+
+//   Class.create = function(prop,st_prop){
+    
+//     var F = function(){       
+// 			if(typeof this.init ==='function'&&this.init)
+//       	this.init.apply(this,arguments);
+//     };
+    
+//     prop = prop || {};
+   
+//     st_prop && Object.keys(st_prop).forEach(function(s){
+// 			F[s] = st_prop[s];  
+// 		});
+		
+// 		F.extend = Class.create;
+
+//     //不是Class extend 要从上个F继承了
+//     if(this != Class){
+//       F.prototype = Object.create(this.prototype);
+//       F.prototype.constructor = F;
+// 			F.prototype.__super__ = this.prototype;
+
+//       Object.keys(prop).forEach(function(s){
+//         //需要扩展的和继承过后的存在重复！
+//         if(F.prototype[s] && typeof F.prototype[s]=='function'){
+             
+//           F.prototype[s] = function(){
+//             var args = arguments,
+//               that = this;      
+//             this._super = function(){
+// 							return that.__super__[s].apply(this,args);
+							
+//             };
+//             return prop[s].apply(this,arguments);
+//           };
+
+//         }else{
+//           F.prototype[s] = prop[s];
+//         };
+        
+// 			});
+			
+
+// 			Object.keys(this).filter(function(s){
+// 		    return !(/extend|create/).test(s);
+// 		  }).forEach(function(s){
+// 		    F[s] = this.__super__.constructor[s];
+// 			},F.prototype);
+			
+// 			st_prop && Object.keys(st_prop).forEach(function(s){
+// 				F[s] = st_prop[s];  
+// 			});
+
+		
+  
+//       return F;
+//     };
+
+//     Object.keys(prop).forEach(function(s){
+//       F.prototype[s] =prop[s];
+//     });
+// 		F.prototype.constructor = F;
+
+//     return F;
+    
+//   };
+//   return window.Class = Class;
+
+// }();
+
+	// class C1 {
+	// 	static get TAG_NAME(){return '23gtaganme'}
+	// 	// static handle1(){return 1234;}
+	// 	constructor(props){
+	// 		console.log('name,',props.name);
+	// 		console.log(this.constructor.TAG_NAME);
+	// 	}
+	// 	handle1(){
+
+	// 	}
+	// }
+	// class C2 extends C1{
+	// 	static get TAG_NAME(){return '77777777anme'}
+	// 	constructor(props){
+	// 		super(props);
+
+	// 	}
+	// }
+	// new C1({name:'apple'});
+	// new C2({name:'juice'});
+
+		// let C1 = Class.create({
+		// 	init(props){
+				
+		// 		console.log('name,',props.name);
+		// 		console.log(this.constructor.TAG_NAME);
+		// 	}
+		// 	,handle1(){
+
+		// 	}
+		// },{TAG_NAME:233333});
+
+
+		// let C2 = C1.extend({
+		// 	init(props){
+		// 		this._super(props);
+		// 		//console.log('C2,',this.name);
+		// 	}
+		// },{TAG_NAME:"c2tagnamgmsdgms"});
+
+		// new C1({name:'c111'});
+
+		// new C2({name:'c222'});
+
+
+		
+
+	</script>
+
+	<main class="abs wh">
+		<style>
+	
+			#mock-sec1 p{
+				padding:20% 0;
+				margin:1% 0;
+			}
+			#mock-editor{
+			
+				width:300px;
+				height:50px;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+
+			}
+			#mock-reply p{
+				padding:50% 0;
+			}
+			#mock-pictures img{
+				width:100%;
+
+			}
+
+
+		</style>
+		<h4>t!</h4>
+		<!-- <div id="edit-place" contenteditable="true">
+			<p>pppppp</p>
+			<img src="src/common/img/reflash.png">
+		</div>
+		<p><button style="font-size:.2rem;">嘻嘻嘻</button></p>
+		<div id="res-place">
+
+		</div> -->
+		<!-- <article id="mock-editor">
+			哈哈哈哈哈反反复复吩咐哈哈哈哈哈Ab😁😁😁😁
+		</article> -->
+		<!-- <article id="mock-reply">
+			<div type="text" id="inputx" style="overflow:scroll;margin-top:100%;width:80%;height:150px;border:1px solid teal;"></div>
+			<p>😁</p>	
+			<p>p111111</p>
+			<p>p111111</p>
+		</article> -->
+		
+		<div id="reply-el"></div>
+		<div id="post-el"></div>
+		
+		
+	</main>
+
+	<!-- https://static.xyimg.net/gamesite/mu/mufed/emjoy_commet/dist/scripts/main1-98c5c9.js -->
+	<!-- <script src="https://unpkg.com/alloylever@1.0.2/alloy-lever.js" crossorigin="anonymous"></script> -->
+	<!-- <script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.4"></script> -->
+
+	<!-- <script src="http://192.168.84.91:8080/target/target-script-min.js#anonymous"></script> -->
+	
+	<!-- <script type="text/javascript" src="dist/scripts/main1.js"></script> -->
+		
+	<script>
+		//console.log(EditorOvO.Reply);
+	
+		{
+			var Class = {};
+			let idx = 0;
+			Class.create = function(prop,st_prop){
+				
+				var F = function(){       
+					console.log('init');
+					if(++idx>10000) return;
+
+					if(typeof this.init ==='function'&&this.init)
+						this.init.apply(this,arguments);
+
+
+				};
+				
+				prop = prop || {};
+				
+				st_prop && Object.keys(st_prop).forEach(function(s){
+					F[s] = st_prop[s];  
+				});
+				
+				F.extend = Class.create;
+				
+				//不是Class extend 要从上个F继承了
+				if(this != Class){
+					F.prototype = Object.create(this.prototype);
+					F.prototype.constructor = F;
+					F.prototype.__super = this.prototype;
+
+					Object.keys(prop).forEach(function(s){
+						//需要扩展的和继承过后的存在重复！
+						if(F.prototype[s] && typeof F.prototype[s]=='function'){
+									
+							F.prototype[s] = function(){
+								var args = arguments,
+									that = this;      
+								this._super = function(){
+									return that.__super[s].apply(this,args);
+									
+								};
+								return prop[s].apply(this,arguments);
+							};
+
+						}else{
+							F.prototype[s] = prop[s];
+						};	
+					});
+					
+
+					Object.keys(this).filter(function(s){
+						return !(/extend|create/).test(s);
+					}).forEach(function(s){
+						F[s] = this.__super.constructor[s];
+					},F.prototype);
+					
+					st_prop && Object.keys(st_prop).forEach(function(s){
+						F[s] = st_prop[s];  
+					});
+
+					return F;
+				};
+
+				Object.keys(prop).forEach(function(s){
+					F.prototype[s] =prop[s];
+				});
+				F.prototype.constructor = F;
+
+				return F;
+				
+			}; 
+
+		}
+		
+		let C0 = Class.create({
+			init(){
+				console.log('c0');
+			}
+
+		});
+
+
+		let C1 = C0.extend({
+			init(){
+				console.log('c1');
+				this._super();
+			}
+
+		});
+		
+
+		let C2 = C1.extend({
+			init(){
+				console.log('c2');
+				this._super();
+			}
+		});
+
+		
+		new C2();
+
+
+
+
+	</script>
+
+</body></html>
