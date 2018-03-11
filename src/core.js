@@ -1,86 +1,71 @@
-// {
-//   var Class = {};
+{
+  var Class = {};
 
-//   Class.create = function(prop,st_prop){
+  Class.create = function(prop,st_prop){
     
-//     var F = function(){       
-//       if(typeof this.init ==='function'&&this.init)
-//         this.init.apply(this,arguments);
-//     };
+    var F = function(){       
+      if(typeof this.init ==='function'&&this.init){
+        this.init.apply(this,arguments);
+      }
+ 
+    };
     
-//     prop = prop || {};
+    prop = prop || {};
     
-//     st_prop && Object.keys(st_prop).forEach(function(s){
-//       F[s] = st_prop[s];  
-//     });
+    st_prop && Object.keys(st_prop).forEach(function(s){
+      F[s] = st_prop[s];  
+    });
     
-//     F.extend = Class.create;
+    F.extend = Class.create;
     
-//     //不是Class extend 要从上个F继承了
-//     if(this != Class){
-//       F.prototype = Object.create(this.prototype);
-//       F.prototype.constructor = F;
-//       F.prototype.__super__ = this.prototype;
+    //不是Class extend 要从上个F继承了
+    if(this != Class){
+      F.prototype = Object.create(this.prototype);
+      F.prototype.__super__ = this.prototype;
+      F.prototype.constructor = F;
 
-//       Object.keys(prop).forEach(function(s){
-//         //需要扩展的和继承过后的存在重复！
-//         if(F.prototype[s] && typeof F.prototype[s]=='function'){
+      var parent_prop = this.prototype;
+      Object.keys(prop).forEach(function(s){
+        //需要扩展的和继承过后的存在重复！
+        if(parent_prop[s] && typeof parent_prop[s]=='function'){
               
-//           F.prototype[s] = function(){
-//             var args = arguments,
-//               that = this;      
-//             this._super = function(){
-//               return that.__super__[s].apply(this,args);
-              
-//             };
-//             return prop[s].apply(this,arguments);
-//           };
+          F.prototype[s] = function(){
+            this._super = parent_prop[s];
+            prop[s].apply(this,arguments);
+            
+          };
 
-//         }else{
-//           F.prototype[s] = prop[s];
-//         };
-        
-//       });
+        }else{
+          F.prototype[s] = prop[s];
+        };	
+      });
+
+      Object.keys(this).filter(function(s){
+        return !(/extend|create/).test(s);
+      }).forEach(function(s){
+        F[s] = this.__super__.constructor[s];
+      },F.prototype);
       
+      st_prop && Object.keys(st_prop).forEach(function(s){
+        F[s] = st_prop[s];  
+      });
 
-//       Object.keys(this).filter(function(s){
-//         return !(/extend|create/).test(s);
-//       }).forEach(function(s){
-//         F[s] = this.__super__.constructor[s];
-//       },F.prototype);
-      
-//       st_prop && Object.keys(st_prop).forEach(function(s){
-//         F[s] = st_prop[s];  
-//       });
+      return F;
+    };
 
+    Object.keys(prop).forEach(function(s){
+      F.prototype[s] =prop[s];
+    });
+    F.prototype.constructor = F;
+
+    return F;
     
+  }; 
 
-//       return F;
-//     };
-
-//     Object.keys(prop).forEach(function(s){
-//       F.prototype[s] =prop[s];
-//     });
-//     F.prototype.constructor = F;
-
-//     return F;
-    
-//   }; 
-
-// }
-
-// let C1 = Class.create({
-//   init(){}
-// });
-// let C2 = C1.extend({
-//   init(){}
-// });
-
-// new C2();
+}
 
 
-
-
+//debugger;
 
 Function.prototype.after = function(fn){
   var that = this;

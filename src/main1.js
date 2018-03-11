@@ -1,4 +1,4 @@
-
+import './normalize.less';
 import Reply from './reply';
 import Post from './post';
 

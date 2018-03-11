@@ -10,6 +10,7 @@ export default Event.extend({
     this.default_options = {
       $container : $(document.body)
       ,$el_active : $(document.body)
+      ,tag_name : 'editor-ovo'
     }
 
     props = Object.assign({},this.default_options,props);
@@ -46,11 +47,12 @@ export default Event.extend({
   ,_createChild(){
     this.el = document.createElement(this.tag_name);
     this.$container.append(this.el);
-    this.el.innerHTML = `
-      <div content-ovo></div>
-    `;
+    this.el.classList.add(this.constructor.cls);
+    // this.el.innerHTML = `
+    //   <div content-ovo></div>
+    // `;
 
-    this.$content = $('div[content-ovo]',this.el);
+    // this.$content = $('div[content-ovo]',this.el);
     //debugger;
 
   }
@@ -59,6 +61,37 @@ export default Event.extend({
   }
   ,_bindDefaultValue(){
     //throw('rewrite !');
+    this.$content.html(this.$content.attr('defaultValue')  );
+    this.$content[0].classList.add('default_value-ovo');
+
+    this.$content[0].addEventListener('blur',function(e){
+      //console.log('blur');
+      var html_ = this.innerHTML.trim();
+
+      var default_value = this.getAttribute('defaultValue').trim();
+      
+      //console.log(html_,default_value, html_===default_value);
+      //ios 还会带上<br>。。。。。
+      //alert(`blur:${html_},length:${html_.length}`);
+      if(html_==='' || html_ === '<br>' ){
+        this.innerHTML = default_value;
+        this.classList.add('default_value-ovo');
+      }
+    });
+
+    this.$content[0].addEventListener('focus',function(){
+
+      //alert('content focus');
+
+      this.classList.remove('default_value-ovo');
+
+      var html_ = this.innerHTML.trim();
+
+      var default_value = this.getAttribute('defaultValue').trim();
+
+      if(html_===default_value) this.innerHTML = '';
+
+    });
   }
   ,_pickEmoji(){
     this.emoji_panel.on('pick',(props)=>{
@@ -67,7 +100,10 @@ export default Event.extend({
     });
   }
   ,_handleForThose(){
+    //debugger;
+    //console.log(this.$el_active);
     this.$el_active.on('click',e=>{
+      //debugger;
       this.show();
     });
 
@@ -87,5 +123,5 @@ export default Event.extend({
     this.hide();
 
   }
-}, {TAG_NAME:'editor-ovo'});
+}, {CLS:''});
 
