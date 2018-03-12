@@ -32,8 +32,8 @@
   },
   "scripts": {
     "//qwq": "dev+static+img+svn↓",
-    "dev": "webpack --w --mode development",
-    "pro": "gulp img && webpack --mode production",
+    "dev": "webpack --w ",
+    "pro": "gulp img && webpack ",
     "start": "nodemon --watch server.js server.js"
   },
   "keywords": [

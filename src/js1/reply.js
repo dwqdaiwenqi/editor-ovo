@@ -358,7 +358,7 @@ var Reply = (el_active,{el_parent=document.body,z_index=999,auto_hide=false,auto
 						</div>
 					</div>
 					<div class="ej-reply__smile-holder rel">
-						<div class="ej-reply__smile-inner abs">
+						<div smile-holder-ovo class="ej-reply__smile-inner abs">
 
 						</div>
           </div>

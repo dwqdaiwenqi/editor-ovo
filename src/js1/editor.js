@@ -106,6 +106,8 @@ var Editor = (el_active,{
 			
 
 
+			//this.fixedPositionBug(this.$content,this.$title);
+
 			{
 
 				let handle_focus = (e)=>{
@@ -594,16 +596,6 @@ var Editor = (el_active,{
 						return that._showMsg(PUB_CONFIG.TITLE_EMPTY);
 
 					}
-					// v_ = v;
-					// v_ = v_.replace(/(\uD83C[\uDF00-\uDFFF])|(\uD83D[\uDC00-\uDE4F])/g,(a,b,c)=>{
-					// 	return '';
-					// });
-
-					// if(!v_.length ||  v===that.$ipt.getAttribute('defaultValue')){
-
-					// 	return that._showMsg(PUB_CONFIG.TITLE_EMPTY);
-
-					// }
 		
 					return 'nextSuccessor';
 
