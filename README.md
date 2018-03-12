@@ -6,7 +6,7 @@ A rich text editor for mobile web. Mixed editing of photos and Emoji
 当前有很多提供选择emoji表情的编辑器，一类编辑器比较轻巧，实现了混合编辑输入的文字和emoji表情标记(例如微笑是 $smile$)。还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。
 这两类都不能满足工作需求，下面这个编辑器混合编辑了：选择自定义的emoji表情（非标记符号）、各端输入的emoji表情、相册选取图片。
 
-这个编辑器的样式设计很通用，希望它能的运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
+这个编辑器的样式设计很通用，希望它能运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
 
 
 # Screenshot
