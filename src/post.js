@@ -11,22 +11,22 @@ var Post = Editor.extend({
       tag_name:'editor-post-ovo'
       ,config : {
         TITLE_EMPTY:'标题不能为空'
-        ,TITLE_TOO_MATCH:'标题太长...'
+        ,TITLE_TOO_LONG:'标题太长...'
         ,CONTENT_EMPTY:'编辑内容不能为空'
-        ,PHOTO_TOO_MATCH:'你传的照片太多了吧...'
-        ,SMILE_TOO_MATCH:'你发的表情太多了吧...'
-        ,WORD_TOO_MATCH:'你写的字数太多了吧...'
-        ,PICTURE_TOO_BIG:'图片太大了'
-        ,_SUCCES:'发表成功'
+        ,PHOTO_TOO_MANY:'你传的照片太多了吧...'
+        ,SMILE_TOO_MANY:'你发的表情太多了吧...'
+        ,WORD_TOO_MANY:'你写的字数太多了吧...'
+        ,PHONE_TOO_BIG:'图片太大了'
+        ,SUCCESS:'发表成功'
         ,MAX_SMILES :20
         //,SMILE_MAX_LEN:30
         // ,PHOTO_MAX_LEN:6
-        ,MAX_PICTURES:6
+        ,MAX_PHOTOES:6
         //,PHOTO_MAX_SIZE:1024*10
         ,MAX_CONTENT_WORDS:800
         ,MAX_TITLE_WORDS:50
 
-        ,IMG_MAX_SIZE : 1024*1024*4
+        ,MAX_SIZE_PHOTO : 1024*1024*4
       }
     },props);
    
@@ -122,7 +122,7 @@ var Post = Editor.extend({
 
       if( !(/image\/(png|jpeg|gif)/.test(type) )) return this._displayMsg('请上传一张图片...');
 
-      if(size > this.options._img_max_size) return this._displayMsg('图片太大...');
+      if(size > this.options.config.MAX_SIZE_PHOTO) return this._displayMsg('图片太大...');
 
       var img_orientation;
 
@@ -246,6 +246,23 @@ var Post = Editor.extend({
     
     
     var {config} = this.options;
+    // TITLE_EMPTY:'标题不能为空'
+    // ,TITLE_TOO_LONG:'标题太长...'
+    // ,CONTENT_EMPTY:'编辑内容不能为空'
+    // ,PHOTO_TOO_MANY:'你传的照片太多了吧...'
+    // ,SMILE_TOO_MANY:'你发的表情太多了吧...'
+    // ,WORD_TOO_MANY:'你写的字数太多了吧...'
+    // ,PHONE_TOO_BIG:'图片太大了'
+    // ,SUCCES:'发表成功'
+    // ,MAX_SMILES :20
+    // //,SMILE_MAX_LEN:30
+    // // ,PHOTO_MAX_LEN:6
+    // ,MAX_PHOTOES:6
+    // //,PHOTO_MAX_SIZE:1024*10
+    // ,MAX_CONTENT_WORDS:800
+    // ,MAX_TITLE_WORDS:50
+
+    // ,MAX_SIZE_PHOTO : 1024*1024*4
     return new Promise(r=>{
       var that = this;
       var v_='';
@@ -265,7 +282,7 @@ var Post = Editor.extend({
       .after(function(){
         var v = that.$title.val().trim();
         if(v.length >config.MAX_TITLE_WORDS){
-          return that._displayMsg(config.TITLE_TOO_MATCH);
+          return that._displayMsg(config.TITLE_TOO_LONG);
         }
         return 'nextSuccessor';
       })
@@ -287,34 +304,31 @@ var Post = Editor.extend({
         //CONSOLE.LGO
         //console.log('smile_len:',smile_len);
 
-        if(smile_len>config.SMILE_MAX_LEN) return that._displayMsg(config.SMILE_TOO_MATCH);
+        if(smile_len>config.MAX_SMILES) return that._displayMsg(config.SMILE_TOO_MANY);
 
         return 'nextSuccessor';
       })
       .after(function(){
         var photo_len = $('.from-input-ovo',that.$content).length;
 
-        if(photo_len>config.PHOTO_MAX_LEN) return that._displayMsg(config.PHOTO_TOO_MATCH);
+        if(photo_len>config.MAX_PHOTOES) return that._displayMsg(config.PHOTO_TOO_MANY);
 
         return 'nextSuccessor';
       })
       .after(function(){
         var v = that.$content[0].textContent.trim();
-        if(v.length >config.WORD_MAX_LEN){
-          return that._displayMsg(config.WORD_TOO_MATCH);
+        if(v.length >config.MAX_CONTENT_WORDS){
+          return that._displayMsg(config.WORD_TOO_MANY);
         }
 
         return 'nextSuccessor';
       })
       .after(function(){
         r({
-          html_title:that.$title.val().trim() 		
-          ,html_content:that.$content[0].innerHTML.trim()
-          ,text_content:that.$content[0].textContent.trim()
-          
-          // html_title:that._utf16toEntities(that.$ipt.value.trim() )
-          // ,html_content:that._utf16toEntities(that.$content[0].innerHTML.trim())
-          // ,text_content:that._utf16toEntities(that.$content[0].textContent.trim())
+          html_title: that._resAdapter(that.$title.val().trim())	
+          ,html_content:that._resAdapter(that.$content[0].innerHTML.trim())
+          ,text_content: that._resAdapter(that.$content[0].textContent.trim()) 
+        
         });
       });
 
@@ -417,6 +431,7 @@ var Post = Editor.extend({
 
 new Post({
   $el_active:'#post-el'
+  ,convert_into_entities : true
   ,onComplete(props){
     console.log(props);
 

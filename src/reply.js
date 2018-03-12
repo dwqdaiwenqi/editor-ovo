@@ -9,9 +9,9 @@ var Reply = Editor.extend({
       tag_name:'editor-reply-ovo'
       ,config : {
         TITLE_EMPTY:'回复内容不能为空'
-        ,SUCCES:'回复成功'
-        ,WORD_TOO_MATCH:'你写的字数太多了吧...'
-        ,SMILE_TOO_MATCH:'你发的表情太多了吧...'
+        ,SUCCESS:'回复成功'
+        ,WORD_TOO_MANY:'你写的字数太多了吧...'
+        ,SMILE_TOO_MANY:'你发的表情太多了吧...'
         ,MAX_WORDS:500
         ,MAX_SMILES:20
       }
@@ -19,6 +19,7 @@ var Reply = Editor.extend({
    
     this._super(props);
 
+    console.log(this.options);
     
     //console.log('reply constructor');
 
@@ -65,7 +66,7 @@ var Reply = Editor.extend({
       .after(function(){
         var smile_len = $('.smile-ovo',that.$content).length;
 
-        if(smile_len>config.MAX_SMILES) return that._displayMsg(config.SMILE_TOO_MATCH);
+        if(smile_len>config.MAX_SMILES) return that._displayMsg(config.SMILE_TOO_MANY);
 
         return 'nextSuccessor';
       })
@@ -73,7 +74,7 @@ var Reply = Editor.extend({
       .after(function(){
         var v = that.$content[0].textContent.trim();
         if(v.length >config.MAX_WORDS){
-          return that._displayMsg(config.WORD_TOO_MATCH);
+          return that._displayMsg(config.WORD_TOO_MANY);
         }
 
         return 'nextSuccessor';
@@ -81,8 +82,8 @@ var Reply = Editor.extend({
       .after(function(){
  
         r({
-          html_content:that.$content[0].innerHTML.trim()
-          ,text_content:that.$content[0].textContent.trim()
+          html_content:that._resAdapter(that.$content[0].innerHTML.trim())
+          ,text_content:that._resAdapter(that.$content[0].textContent.trim()) 
           
         });
 
@@ -95,6 +96,7 @@ var Reply = Editor.extend({
     });
 
   }
+ 
   ,_handleConfirm(){
    
 
@@ -166,13 +168,13 @@ new Reply({
   $el_active:'#reply-el'
   ,config : {
     TITLE_EMPTY:'回复内容不能为空'
-    ,SUCCES:'回复成功'
-    ,WORD_TOO_MATCH:'你写的字数太多了吧...'
-    ,SMILE_TOO_MATCH:'你发的表情太多了吧...'
-
+    ,SUCCESS:'回复成功'
+    ,WORD_TOO_MANY:'你写的字数太多了吧...'
+    ,SMILE_TOO_MANY:'你发的表情太多了吧...'
     ,MAX_WORDS:500
     ,MAX_SMILES:20
   }
+  ,convert_into_entities : true
   ,onComplete(props){
     console.log(props);
 
