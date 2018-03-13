@@ -12,6 +12,8 @@ A rich text editor for mobile web. Mixed editing of photos and Emoji
 
 ![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)
 
+
+
 ![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic2.jpg)
 
 
@@ -20,7 +22,7 @@ A rich text editor for mobile web. Mixed editing of photos and Emoji
 ```js
 npm install editor-ovo --save
 ```
-or
+## or
 
 ```js
 cnpm install editor-ovo --save
@@ -84,7 +86,7 @@ new Reply({
 ```
 
 # Api
-### options
+### Options
 ```js
 {
   //激活编辑器的元素
@@ -127,7 +129,7 @@ new Reply({
 }
 
 ```
-### 后台api接口
+### Nodejs Api
 ```js
 //nodejs 生成图片url 
 app.post('/upload', function(req, res){
@@ -151,7 +153,7 @@ app.post('/upload', function(req, res){
 ```
 
 
-## methods
+## Methods
 | 方法     | 类型     | 描述 | 必需 | 
 | :------------- | :------------- | :------------- | :------------- | 
 | clear         | function      | 清除当前编辑器内容 | 否 | 
@@ -161,7 +163,7 @@ app.post('/upload', function(req, res){
 | unbind         | function      | 解绑它 | 否 | 
 | generateUrl     | function      | 对各个base64生成url | 否 |
 
-## mysql存储问题
+## Storge in Mysql
 如果把用户自己输入的emoji字符也存到mysql数据库中，那么需要对mysql存储方式进行改变。存储单个emoji需要4字节，为了支持4字节的存储，在mysql中需要从'utf8'切换到'utf8mb4'。
 
 如果不方便更改存储编码，也可将options配置中convert_into_entities设置为true，以便存储。
