@@ -19,7 +19,6 @@ var Reply = Editor.extend({
    
     this._super(props);
 
-    console.log(this.options);
     
     //console.log('reply constructor');
 
@@ -164,30 +163,10 @@ var Reply = Editor.extend({
 });
 
 
-new Reply({
-  $el_active:'#reply-el'
-  ,config : {
-    TITLE_EMPTY:'回复内容不能为空'
-    ,SUCCESS:'回复成功'
-    ,WORD_TOO_MANY:'你写的字数太多了吧...'
-    ,SMILE_TOO_MANY:'你发的表情太多了吧...'
-    ,MAX_WORDS:500
-    ,MAX_SMILES:20
-  }
-  ,convert_into_entities : true
-  ,onComplete(props){
-    console.log(props);
-
-    //this.clear();
-    //this.hide();
-
-  }
-})
+export default Reply;
 
 
+// export default function(props){
 
-
-export default function(props){
-
-  return new Reply(props);
-}
+//   return new Reply(props);
+// }

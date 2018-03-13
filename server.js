@@ -11,7 +11,7 @@ var http = require('http');
 
 
 
-
+app.use('/example',express.static(__dirname + '/example/'));
 app.use('/dist',express.static(__dirname + '/dist/'));
 app.use('/src',express.static(__dirname + '/src/'));
 app.use('/img',express.static(__dirname + '/img/'));
@@ -24,7 +24,7 @@ app.use(
 
 app.get('/', function (req, res) {
   //res.send('niconiconi !!!niconiconi !!niconiconi ');
-  res.sendFile(__dirname+'/index.html');
+  res.sendFile(__dirname+'/example/index.html');
 });
 
 

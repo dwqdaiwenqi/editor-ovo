@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,viewport-fit=cover">
+  <title>editor-ovo demo</title>
+  <script src="http://static.xyimg.net/gamesite/mu/mufed/common/js/polyfill.min.js"></script>
+	<script src="http://static.xyimg.net/common/js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+	<style>
+
+	</style>
+
+	<main class="abs wh">
+		<style>
+	
+			#mock-sec1 p{
+				padding:20% 0;
+				margin:1% 0;
+			}
+			#mock-editor{
+			
+				width:300px;
+				height:50px;
+				overflow: hidden;
+				text-overflow:ellipsis;
+				white-space: nowrap;
+
+			}
+			#mock-reply p{
+				padding:50% 0;
+			}
+			#mock-pictures img{
+				width:100%;
+
+			}
+
+      #reply-el{
+        width:50px;height:50px;
+        border:1px solid black;
+			}
+			#post-el{
+        width:50px;height:50px;
+        border:1px solid rgb(119, 36, 36);
+      }
+		</style>
+	
+		
+		<div id="reply-el"></div>
+		<div id="post-el"></div>
+		
+		
+	</main>
+	
+  <script src="../dist/scripts/main1.js"></script>
+
+  <script src="dist/scripts/main1.js"></script>
+
+	<script>
+
+    new EmojiOvO.Reply({
+      $el_active:'#reply-el'
+      ,config : {
+        TITLE_EMPTY:'回复内容不能为空'
+        ,SUCCESS:'回复成功'
+        ,WORD_TOO_MANY:'你写的字数太多了吧...'
+        ,SMILE_TOO_MANY:'你发的表情太多了吧...'
+        ,MAX_WORDS:500
+        ,MAX_SMILES:20
+      }
+      ,convert_into_entities : true
+      ,onComplete(props){
+        console.log(props);
+
+        //this.clear();
+        //this.hide();
+
+      }
+    });
+
+	</script>
+
+</body></html>

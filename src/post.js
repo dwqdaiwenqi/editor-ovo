@@ -429,22 +429,4 @@ var Post = Editor.extend({
 });
 
 
-new Post({
-  $el_active:'#post-el'
-  ,convert_into_entities : true
-  ,onComplete(props){
-    console.log(props);
-
-    //this.clear();
-    //this.hide();
-
-  }
-})
-
-
-
-
-export default function(props){
-
-  return new Post(props);
-}
+export default Post;
