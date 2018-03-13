@@ -1,6 +1,6 @@
 {
   "name": "editor-ovo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "email": "2540546236@qq.com",
   "description": "a rich text editor for mobile web. mixed effect of picture and text",
   "main": "dist/scripts/main1.js",
