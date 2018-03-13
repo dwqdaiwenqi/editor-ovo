@@ -12,8 +12,6 @@ A rich text editor for mobile web. Mixed editing of photos and Emoji
 
 ![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)
 
-
-
 ![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic2.jpg)
 
 
@@ -55,6 +53,7 @@ new EditorOvO.Reply({
     console.log(props);
     //this.clear();
     //this.hide();
+
   }
 })
 
@@ -67,6 +66,7 @@ new EditorOvO.Post({
     console.log(props);
     //this.clear();
     //this.hide();
+    
   }
 })
 ```
