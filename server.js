@@ -38,17 +38,20 @@ app.post('/upload', function(req, res){
 	var dataBuffer = new Buffer(base64Data, 'base64');
 	var img_name = `image-${Date.now()}.${suff}`;
 
-	fs.writeFile(`upload/${img_name}`, dataBuffer, function(err) {
+	fs.writeFile(`example/upload/${img_name}`, dataBuffer, function(err) {
 			var resx = {
 				attr:{
-					url:`upload/${img_name}`
+					url:`example/upload/${img_name}`
 				}
 				
 			}
+
+			//console.log(err);
+
 	    if(err){
 				var resx = {
 					attr:{
-						url:`upload/${img_name}`
+						url:`example/upload/${img_name}`
 					}
 				}
 				//console.log(resx);

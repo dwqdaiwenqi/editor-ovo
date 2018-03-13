@@ -167,7 +167,7 @@ var Post = Editor.extend({
               ,ty = cv.height*.5
               ,x=tx,y=ty;
             c.translate(x,y);
-            c.rotate(PI*.5);
+            c.rotate(Math.PI*.5);
             c.drawImage(pic
               ,-ty,-tx
               ,pic.width*scale_to_max,(pic.width/s)*scale_to_max
@@ -367,6 +367,56 @@ var Post = Editor.extend({
 
     })
   }
+  ,generateUrl(api='/upload',props){
+    var {html_content,upload_pictures,text_content,el_target} = props;
+    var $holder = document.createElement('div');
+    //document.body.appendChild($holder);
+    $holder.innerHTML = html_content;
+
+    var $imgs = [...$holder.querySelectorAll('img.from-input-ovo')];
+
+
+    return new Promise(r=>{
+      Promise.all(
+        $imgs.map(($img,i)=>{
+          return new Promise(r=>{
+
+            $.post(api,{base64:$img.src,suff:$img.getAttribute('suffix-ovo')},res=>{
+
+              try{
+
+                res = eval(res);
+         
+                $img.src = res.attr.url;
+
+                upload_pictures[i].src = $img.src;
+
+                r();
+
+              }catch(e){ alert(`img convert err:${e}`)}		
+            });
+
+          
+            
+            
+          });
+
+        })
+      ).then(res=>{
+    
+        r({
+          html_content:$holder.innerHTML
+          ,html_title:props.html_title
+          ,upload_pictures:upload_pictures
+          ,edit_time:props.edit_time
+          ,text_content
+          ,el_target
+        });
+
+      })
+    });
+
+  }
   ,_createChild(){
     this._super();
     //editor-reply-ovo
@@ -427,6 +477,5 @@ var Post = Editor.extend({
   CLS:'editor-post-ovo'
   ,EL_TITLE:'input[title-ovo]'
 });
-
 
 export default Post;

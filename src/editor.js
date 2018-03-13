@@ -248,6 +248,9 @@ export default Event.extend({
     this._selection.removeAllRanges();
     this._selection.addRange(range);
   }
+  ,destory(){
+    $(this.el).remove();
+  }
   ,_recordLastRange(ms=0){
 
     clearTimeout(this._itv_range);

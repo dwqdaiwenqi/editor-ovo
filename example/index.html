@@ -13,28 +13,6 @@
 
 	<main class="abs wh">
 		<style>
-	
-			#mock-sec1 p{
-				padding:20% 0;
-				margin:1% 0;
-			}
-			#mock-editor{
-			
-				width:300px;
-				height:50px;
-				overflow: hidden;
-				text-overflow:ellipsis;
-				white-space: nowrap;
-
-			}
-			#mock-reply p{
-				padding:50% 0;
-			}
-			#mock-pictures img{
-				width:100%;
-
-			}
-
       #reply-el{
         width:50px;height:50px;
         border:1px solid black;
@@ -54,28 +32,54 @@
 	
   <script src="../dist/scripts/main1.js"></script>
 
-  <script src="dist/scripts/main1.js"></script>
+  <!-- <script src="dist/scripts/main1.js"></script> -->
+
 	<script>
 
-    new EditorOvO.Reply({
-      $el_active:'#reply-el'
-      ,config : {
-        TITLE_EMPTY:'回复内容不能为空'
-        ,SUCCESS:'回复成功'
-        ,WORD_TOO_MANY:'你写的字数太多了吧...'
-        ,SMILE_TOO_MANY:'你发的表情太多了吧...'
-        ,MAX_WORDS:500
-        ,MAX_SMILES:20
-      }
+    // new EditorOvO.Reply({
+    //   $el_active:'#reply-el'
+    //   ,config : {
+    //     TITLE_EMPTY:'回复内容不能为空'
+    //     ,SUCCESS:'回复成功'
+    //     ,WORD_TOO_MANY:'你写的字数太多了吧...'
+    //     ,SMILE_TOO_MANY:'你发的表情太多了吧...'
+    //     ,MAX_WORDS:500
+    //     ,MAX_SMILES:20
+    //   }
+    //   ,convert_into_entities : true
+    //   ,onComplete(props){
+    //     console.log(props);
+
+    //     //this.clear();
+    //     //this.hide();
+
+    //   }
+    // });
+    
+
+    new EditorOvO.Post({
+      $el_active:'#post-el'
       ,convert_into_entities : true
       ,onComplete(props){
-        console.log(props);
 
+        //清除内容
         //this.clear();
+        //隐藏编辑器
         //this.hide();
+        //销毁编辑器
+        //this.destory();
+        
+
+        //可以为upload_pictures每项添加一个用当前base64生成的url
+        //接口是/upload
+        this.generateUrl('/upload',props).then(res=>{
+          console.log(res);
+        });
+       
+
 
       }
-    });
+    })
 
 	</script>
 
