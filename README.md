@@ -4,6 +4,7 @@
 A rich text editor for mobile web. Mixed editing of photos and Emoji
 
 当前有很多提供emoji表情的编辑器。一类编辑器比较轻巧，实现了混合编辑输入的文字和emoji表情标记(例如微笑是 $smile$)。还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。
+
 这两类都不能满足工作需求，下面这个编辑器混合编辑了：选择自定义的emoji表情（非标记符号）、各端输入的emoji表情、相册选取图片。
 
 这个编辑器的样式设计很通用，希望它能运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
@@ -24,6 +25,11 @@ or
 ```js
 cnpm install editor-ovo --save
 ```
+
+# CDN
+* [https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js](https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js)
+
+
 # Usage
 ### HTML
 ```html
@@ -132,12 +138,10 @@ app.post('/upload', function(req, res){
 	var buffer_ = new Buffer(base64_.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 	var img_name = `image-${Date.now()}.${suff}`;
 
-  //请更改自己图片路径位置！！
+  //请更改自己图片路径位置！
 	fs.writeFile(`./example/upload/${img_name}`, buffer_, (err)=>{
-			var resx = {
-				attr:{url:`../example/upload/${img_name}`	}	
-			}
-			err?res.send('fail!'):res.end( `(${JSON.stringify(resx)})` );
+    var resx = {attr:{url:`../example/upload/${img_name}`	}	}
+    err?res.send('fail!'):res.end( `(${JSON.stringify(resx)})` );
 	});
  
 });
