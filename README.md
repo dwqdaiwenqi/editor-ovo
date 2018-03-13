@@ -60,7 +60,7 @@ new EditorOvO.Post({
   }
 })
 ```
-#### Work with module bundler
+### Work with module bundler
 
 ```js
 import {Reply,Post} from 'editor-ovo';
@@ -75,7 +75,8 @@ new Reply({
 
 ```
 
-# Options
+# Api
+### options
 ```js
 {
   //激活编辑器的元素
@@ -104,12 +105,34 @@ new Reply({
     ,MAX_SMILES :20
     ,MAX_PHOTOES:6
   }
+  //不必须，完成编辑后的回调
+  ,onComplete:function(props){
+    
+    //this.hide()
+    //this.clear();
+
+    //如需对各个base64生成url
+    this.generateUrl('/api',props).then(res=>{
+      //..
+    });
+  }
 }
 
 ```
+## methods
+| 方法     | 类型     | 描述 | 必需 | 
+| :------------- | :------------- | :------------- | :------------- | 
+| clear         | function      | 清除当前编辑器内容 | 否 | 
+| show         | function      | 显示它 | 否 | 
+| hide         | function      | 隐藏它 | 否 | 
+| destory         | function      | 销毁它 | 否 | 
+| unbind         | function      | 解绑它 | 否 | 
+| generateUrl     | function      | 对各个base64生成url | 否 |
 
-## 使用mysql进行存储
+## mysql进行存储问题
 如果把用户自己输入的emoji字符也存到mysql数据库中，那么需要对mysql存储方式进行改变。存储单个emoji需要4字节，为了支持4字节的存储，在mysql中需要从'utf8'切换到'utf8mb4'。
+
+如果不方便更改存储编码，也可将options配置中convert_into_entities设置为true，以便存储。
 
 
 # License

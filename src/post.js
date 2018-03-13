@@ -368,6 +368,8 @@ var Post = Editor.extend({
     })
   }
   ,generateUrl(api='/upload',props){
+
+
     var {html_content,upload_pictures,text_content,el_target} = props;
     var $holder = document.createElement('div');
     //document.body.appendChild($holder);
@@ -375,13 +377,14 @@ var Post = Editor.extend({
 
     var $imgs = [...$holder.querySelectorAll('img.from-input-ovo')];
 
-
     return new Promise(r=>{
       Promise.all(
         $imgs.map(($img,i)=>{
           return new Promise(r=>{
 
             $.post(api,{base64:$img.src,suff:$img.getAttribute('suffix-ovo')},res=>{
+
+              //debugger;
 
               try{
 

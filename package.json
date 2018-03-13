@@ -2,12 +2,14 @@
   "name": "editor-ovo",
   "version": "1.1.0",
   "email": "2540546236@qq.com",
-  "description": "a rich text editor for mobile web. mixed effect of picture and text",
+  "description": "a rich text editor for mobile web. mixed effect of picture and emoji",
   "main": "dist/scripts/main1.js",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "ip": "^1.1.5",
+    "os": "^0.1.1"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",

@@ -7,79 +7,61 @@
 	<script src="http://static.xyimg.net/common/js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
-	<style>
-
-	</style>
-
 	<main class="abs wh">
 		<style>
       #reply-el{
-        width:50px;height:50px;
         border:1px solid black;
+        position:fixed;
+        left:0;bottom:0;
+        width:100%;
+        height:50px;
 			}
-			#post-el{
-        width:50px;height:50px;
+
+      #post-el{
+        width:100px;height:100px;
+        border-radius: 100px;
+        position: absolute;
+        margin:5%;
         border:1px solid rgb(119, 36, 36);
+        box-shadow: 1px 1px 5px rgba(0,0,0,.6);
+        right:0;
+
       }
 		</style>
 	
 		
-		<div id="reply-el"></div>
-		<div id="post-el"></div>
+		<button id="reply-el">点我回复</button>
+		<button id="post-el">点我编辑</button>
 		
 		
 	</main>
 	
   <script src="../dist/scripts/main1.js"></script>
 
-  <!-- <script src="dist/scripts/main1.js"></script> -->
+  <script src="dist/scripts/main1.js"></script>
 
 	<script>
 
-    // new EditorOvO.Reply({
-    //   $el_active:'#reply-el'
-    //   ,config : {
-    //     TITLE_EMPTY:'回复内容不能为空'
-    //     ,SUCCESS:'回复成功'
-    //     ,WORD_TOO_MANY:'你写的字数太多了吧...'
-    //     ,SMILE_TOO_MANY:'你发的表情太多了吧...'
-    //     ,MAX_WORDS:500
-    //     ,MAX_SMILES:20
-    //   }
-    //   ,convert_into_entities : true
-    //   ,onComplete(props){
-    //     console.log(props);
-
-    //     //this.clear();
-    //     //this.hide();
-
-    //   }
-    // });
-    
-
-    new EditorOvO.Post({
-      $el_active:'#post-el'
-      ,convert_into_entities : true
+    new EditorOvO.Reply({
+      $el_active:'#reply-el'
+      ,config : {
+        TITLE_EMPTY:'回复内容不能为空'
+        ,SUCCESS:'回复成功'
+        ,WORD_TOO_MANY:'你写的字数太多了吧...'
+        ,SMILE_TOO_MANY:'你发的表情太多了吧...'
+        ,MAX_WORDS:500
+        ,MAX_SMILES:20
+      }
+      ,convert_into_entities : false
       ,onComplete(props){
+        console.log(props);
 
-        //清除内容
-        //this.clear();
-        //隐藏编辑器
-        //this.hide();
-        //销毁编辑器
-        //this.destory();
-        
-
-        //可以为upload_pictures每项添加一个用当前base64生成的url
-        //接口是/upload
-        this.generateUrl('/upload',props).then(res=>{
-          console.log(res);
-        });
-       
-
+        this.clear();
+        this.hide();
 
       }
-    })
+    });
+    
 
 	</script>
 
