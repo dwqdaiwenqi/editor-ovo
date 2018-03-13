@@ -112,13 +112,39 @@ new Reply({
     //this.clear();
 
     //如需对各个base64生成url
-    this.generateUrl('/api',props).then(res=>{
+    this.generateUrl('/upload',props).then(res=>{
       //..
     });
   }
 }
 
 ```
+### 后台api接口
+```js
+//nodejs 生成图片url 
+app.post('/upload', function(req, res){
+	res.header('Access-Control-Allow-Origin', '*');
+
+	var base64_ = req.body.base64;
+
+	var suff = req.body.suff;
+
+	var buffer_ = new Buffer(base64_.replace(/^data:image\/\w+;base64,/, ''), 'base64');
+	var img_name = `image-${Date.now()}.${suff}`;
+
+  //请更改自己图片路径位置！！
+	fs.writeFile(`./example/upload/${img_name}`, buffer_, (err)=>{
+			var resx = {
+				attr:{url:`../example/upload/${img_name}`	}	
+			}
+			err?res.send('fail!'):res.end( `(${JSON.stringify(resx)})` );
+	});
+ 
+});
+
+```
+
+
 ## methods
 | 方法     | 类型     | 描述 | 必需 | 
 | :------------- | :------------- | :------------- | :------------- | 
@@ -129,7 +155,7 @@ new Reply({
 | unbind         | function      | 解绑它 | 否 | 
 | generateUrl     | function      | 对各个base64生成url | 否 |
 
-## mysql进行存储问题
+## mysql存储问题
 如果把用户自己输入的emoji字符也存到mysql数据库中，那么需要对mysql存储方式进行改变。存储单个emoji需要4字节，为了支持4字节的存储，在mysql中需要从'utf8'切换到'utf8mb4'。
 
 如果不方便更改存储编码，也可将options配置中convert_into_entities设置为true，以便存储。
