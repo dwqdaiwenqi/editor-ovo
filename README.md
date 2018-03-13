@@ -10,8 +10,7 @@ A rich text editor for mobile web. Mixed editing of photos and Emoji
 
 # Screenshot
 
-![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)
-![pic2](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic2.jpg)
+<div align=center>![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)</div>
 
 # Install
 
@@ -165,13 +164,13 @@ app.post('/upload', function(req, res){
 如果不方便更改存储编码，也可将options配置中convert_into_entities设置为true，以便存储。
 
 
-#Run the example
+## Run the example
 ```js
 npm install 
 npm install webpack -g
 npm run example
 ```
-open *[http://localhost:82/example](http://localhost:82/example)
+open * [http://localhost:82/example](http://localhost:82/example)
 
 # License
 This content is released under the [MIT](http://opensource.org/licenses/MIT) License.
