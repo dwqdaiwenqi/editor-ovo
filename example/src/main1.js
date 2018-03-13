@@ -5,9 +5,10 @@ new Post({
   ,convert_into_entities : true
   ,onComplete(props){
     console.log(props);
-
+    
     //this.clear();
     //this.hide();
 
   }
 })
+

@@ -1,27 +1,12 @@
 const path = require('path');
 const url = require('url');
 const webpack = require('webpack');
-// const fs = require('fs-extra');
-// const CleanPlugin = require('clean-webpack-plugin');
-// const AssetsPlugin = require('assets-webpack-plugin');
-// const shelljs = require('shelljs');
-
 const pkg = require('./package.json');
-
-// var dir = path.parse(__filename).dir;
-
-// dir = dir.split(/\\/).pop();
-
 
 
 ;(function(){
 
-  // return;
-
   const ENV = process.env.npm_lifecycle_event;
-
-  //webpack --config webpack.deploy.js
-
 
   var config = {
   
@@ -51,18 +36,24 @@ const pkg = require('./package.json');
     Object.assign(config.output,{
       path : __dirname+'/dist/'
       ,publicPath : 'dist/'
-      ,library: 'EmojiOvO'
+      ,library: 'EditorOvO'
       ,libraryTarget: 'umd'
     });
     config.entry = {main1 : './src/main1.js'}
   }
 
+  if(ENV=='pro'){
+
+    config.plugins.push(
+      new webpack.optimize.UglifyJsPlugin({compress: { warnings: false}  })
+    )
+
+  }
 
 
 
   config.plugins.push(
     new webpack.DefinePlugin({
-    // __DEV__: JSON.stringify(process.env.npm_lifecycle_event),
       'process.env.NODE_ENV': JSON.stringify(ENV==='pro'?'production':'development')
     })
 
@@ -88,10 +79,6 @@ const pkg = require('./package.json');
         {
           test: /\.(css|less)$/,
           use: [
-            //  'style-loader',
-            //  'css-loader',
-            //  //'postcss-loader',
-            //  'less-loader'
 
             'style-loader',
             'css-loader',
@@ -124,14 +111,7 @@ const pkg = require('./package.json');
           loader: 'babel-loader',
           exclude: /node_modules/,
           options: {
-            //presets: ['es2015','react']
-            //babel-preset-env
-            //babel-preset-stage-0
             presets: ['env']
-            // plugins: [
-            //     'transform-es3-property-literals',
-            //     'transform-es3-member-expression-literals'
-            // ]
           }
         },
   

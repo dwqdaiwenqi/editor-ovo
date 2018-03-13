@@ -37,7 +37,7 @@
     "//qwq": "dev+static+img+svn↓",
     "dev": "webpack --w ",
     "example": "webpack --w",
-    "pro": "gulp img && webpack ",
+    "pro": "webpack ",
     "start": "nodemon --watch server.js server.js"
   },
   "keywords": [
