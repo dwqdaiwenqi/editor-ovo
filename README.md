@@ -165,5 +165,13 @@ app.post('/upload', function(req, res){
 如果不方便更改存储编码，也可将options配置中convert_into_entities设置为true，以便存储。
 
 
+#Run the example
+```js
+npm install 
+npm install webpack -g
+npm run example
+```
+open *[http://localhost:82/example](http://localhost:82/example)
+
 # License
 This content is released under the [MIT](http://opensource.org/licenses/MIT) License.
