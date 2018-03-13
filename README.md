@@ -1,19 +1,19 @@
 #    editor-ovo
-一个适用于移动web的富文本编辑器。照片加emoji的混合编辑
+一个适用于移动web的富文本编辑器，实现了照片、表情、文字混排编辑。
 
 A rich text editor for mobile web. Mixed editing of photos and Emoji
 
-当前有很多提供emoji表情的编辑器。一类编辑器比较轻巧，实现了混合编辑输入的文字和emoji表情标记(例如微笑是 $smile$)。还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。
+当前有很多提供emoji表情的编辑器。一类编辑器提供的功能很简单，仅能输入文字和emoji标记（如：$apple$）。还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。。
 
-这两类都不能满足工作需求，下面这个编辑器混合编辑了：选择自定义的emoji表情（非标记符号）、各端输入的emoji表情、相册选取图片。
+反正没有搜索到比较好用的，能满足工作需求的。。所以决定打造一个能提供文字输入、自定义emoji图片、输入的emoji字符，相册选取图片的混排编辑器。
 
-这个编辑器的样式设计很通用，希望它能运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
+这个编辑器的样式设计很通用，希望它也能运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
 
 
 # Screenshot
 
-![Image text](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)
-![Image text](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic2.jpg)
+![pic1](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic1.jpg)
+![pic2](https://github.com/dwqdaiwenqi/readme-img/raw/master/pic2.jpg)
 
 # Install
 
@@ -35,6 +35,8 @@ cnpm install editor-ovo --save
 ```html
   <script src="http://static.xyimg.net/common/js/jquery-1.8.3.min.js"></script>
   <script src="node_modules/editor-ovo/dist/scripts/main1.js"></script>
+  <!--或者-->
+  <!-- <script src="https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js"></script> -->
   <!-- ... -->
   <button id="btn1"></button>
   <!-- ... -->
