@@ -3,7 +3,7 @@
 
 A rich text editor for mobile web. Mixed editing of photos and Emoji
 
-当前有很多提供emoji表情的编辑器：一类编辑器提供的功能很简单，仅能输入文字和emoji标记（如：$apple$）；还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。不过呢，我没有搜索到比较好用的，能满足工作需求的。所以决定打造一个能提供文字输入、自定义emoji图片、输入emoji字符、相册选取图片的混排编辑器。
+当前有很多提供emoji表情的编辑器：一类编辑器提供的功能很简单，仅能输入文字和emoji标记（如：$apple$）；还有一种编辑器功能很强大，大多用在pc端，可以控制输入字体样式、字号、图片插入、emoji插入、超链、等等。不过呢，没有搜索到比较好用的，能满足工作需求的。所以决定打造一个能提供文字输入、自定义emoji图片、输入emoji字符、相册选取图片的混排编辑器。
 
 这个编辑器的样式设计很通用，希望它也能运用到你的项目中，并帮你解决问题:lollipop::lollipop::lollipop:
 
@@ -58,7 +58,7 @@ new EditorOvO.Reply({
 })
 
 ////
-new EditorOvO.Post({
+new EditorOvO.Editor({
   $el_active:'#btn2'
   ,config : { }
   ,convert_into_entities : false
@@ -73,13 +73,13 @@ new EditorOvO.Post({
 ### Work with module bundler
 
 ```js
-import {Reply,Post} from 'editor-ovo';
+import {Reply,Editor} from 'editor-ovo';
 
-new Post({
+new Reply({
     // ...
 });
 
-new Reply({
+new Editor({
     // ...
 });
 
@@ -174,6 +174,7 @@ app.post('/upload', function(req, res){
 npm install 
 npm install webpack -g
 npm run example
+npm run start
 ```
 open [http://localhost:82/example](http://localhost:82/example)
 

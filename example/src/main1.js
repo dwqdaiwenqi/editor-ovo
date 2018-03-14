@@ -1,6 +1,6 @@
-import {Post} from '../../dist/scripts/main1.js';
+import {Editor} from '../../dist/scripts/main1.js';
 
-new Post({
+new Editor({
   $el_active:'#post-el'
   ,convert_into_entities : false
   ,onComplete(props){

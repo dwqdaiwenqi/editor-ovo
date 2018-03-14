@@ -40,6 +40,11 @@ app.post('/upload', function(req, res){
 			var resx = {
 				attr:{url:`../example/upload/${img_name}`	}	
 			}
+
+			if(err){
+				console.log(err);
+			}
+			
 			err?res.send('fail!'):res.end( `(${JSON.stringify(resx)})` );
 	});
  

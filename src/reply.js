@@ -1,8 +1,8 @@
-import Editor from './editor';
+import Display from './display';
 import './reply.less';
 
 
-var Reply = Editor.extend({
+var Reply = Display.extend({
   init(props){
     //debugger;
     props = Object.assign({},{

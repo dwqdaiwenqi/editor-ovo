@@ -1,7 +1,7 @@
 import './main1.less';
 import Reply from './reply';
-import Post from './post';
 import Editor from './editor';
+import Display from './display';
 
-module.exports = {Reply,Post,Editor};
+module.exports = {Reply,Editor,Display};
 
