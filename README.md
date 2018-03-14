@@ -27,7 +27,7 @@ cnpm install editor-ovo --save
 ```
 
 # CDN
-* [https://unpkg.com/editor-ovo@1.1.5/dist/scripts/main1.js](https://unpkg.com/editor-ovo@1.1.5/dist/scripts/main1.js)
+* [https://unpkg.com/editor-ovo@1.1.6/dist/scripts/main1.js](https://unpkg.com/editor-ovo@1.1.6/dist/scripts/main1.js)
 
 
 # Usage
@@ -95,9 +95,11 @@ new Editor({
   //不必须，默认是false
   //如果数据库不支持切换到utf8mb4的存储方式，那么可以将参数设置为true
   //将'😁'转换为实体'&#128513;' 进行存储
-  convert_into_entities : true
+  ,convert_into_entities : true
   //////
 
+  //不必须，编辑器的层级，默认是100
+  ,z_index : 1234
   //不必须，默认的提示信息如下
   ,config : {
     //都不是必须
