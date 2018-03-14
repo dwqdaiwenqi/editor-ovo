@@ -109,7 +109,7 @@ new Editor({
     ,PHOTO_TOO_MANY:'你传的照片太多了吧...'
     ,SMILE_TOO_MANY:'你发的表情太多了吧...'
     ,WORD_TOO_MANY:'你写的字数太多了吧...'
-    ,PHONE_TOO_BIG:'图片太大了'
+    ,PHOTO_TOO_BIG:'图片太大了'
     ,SUCCESS:'发表成功'
     ,MAX_CONTENT_WORDS:800
     ,MAX_TITLE_WORDS:50
