@@ -27,7 +27,7 @@ cnpm install editor-ovo --save
 ```
 
 # CDN
-* [https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js](https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js)
+* [https://unpkg.com/editor-ovo@1.1.3/dist/scripts/main1.js](https://unpkg.com/editor-ovo@1.1.4/dist/scripts/main1.js)
 
 
 # Usage
