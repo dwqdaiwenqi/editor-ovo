@@ -50,14 +50,14 @@ app.post('/upload', function(req, res){
  
 });
 
-app.get('/posting',function(req,res){
+// app.get('/posting',function(req,res){
 	
-	console.log(req.query);
-	res.send('success!');
-	//res.jsonp({status:'jsonp'});
+// 	console.log(req.query);
+// 	res.send('success!');
+// 	//res.jsonp({status:'jsonp'});
 
 
-});
+// });
 
 
 var PORT = 82;
