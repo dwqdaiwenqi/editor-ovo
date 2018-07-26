@@ -50,6 +50,7 @@ app.post('/upload', function(req, res){
  
 });
 
+// does not need
 // app.get('/posting',function(req,res){
 	
 // 	console.log(req.query);
