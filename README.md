@@ -1,5 +1,5 @@
 #    editor-ovo
-一个适用于移动web的富文本编辑器，实现了照片、表情、文字混排编辑。 ~~Volume Slider~
+一个适用于移动web的富文本编辑器，实现了照片、表情、文字混排编辑。 ~~Volume Slider~~
 ## Todo
 
 - ~~Volume Slider~~
