@@ -6,7 +6,7 @@ const version = require('./package.json').version;
 gulp.task('build', ()=>{
   gulp.src([
     'src/**/*.{js,jsx}'
-  ])
+  ])     
   .pipe(
     babel({ presets: ['es2015','react']  })
   )
